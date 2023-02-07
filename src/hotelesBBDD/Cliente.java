@@ -8,6 +8,13 @@ public class Cliente {
 	private String localidad;
 	
 	
+	@Override
+	public String toString() {
+		return "dni;" + dni + ", nombre;" + nombre + ", apellidos;" + apellidos + ", direccion;" + direccion
+				+ ", localidad;" + localidad;
+	}
+	
+	
 	public String getDni() {
 		return dni;
 	}

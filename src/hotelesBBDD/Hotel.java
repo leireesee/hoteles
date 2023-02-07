@@ -9,6 +9,13 @@ public class Hotel {
 	private String compania;
 	
 	
+	@Override
+	public String toString() {
+		return "id;" + id + ", cif;" + cif + ", nombre;" + nombre + ", gerente;" + gerente + ", estrellas;" + estrellas
+				+ ", compania;" + compania;
+	}
+	
+	
 	public int getId() {
 		return id;
 	}

@@ -10,6 +10,13 @@ public class Reserva {
 	private Date hasta;
 	
 	
+	@Override
+	public String toString() {
+		return "id;" + id + ", id_habitacion;" + id_habitacion + ", dni;" + dni + ", desde;" + desde + ", hasta;"
+				+ hasta;
+	}
+	
+	
 	public int getId() {
 		return id;
 	}

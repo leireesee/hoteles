@@ -8,6 +8,13 @@ public class Habitacion {
 	private double precio;
 	
 	
+	@Override
+	public String toString() {
+		return "id;" + id + ", id_hotel;" + id_hotel + ", numero;" + numero + ", descripcion;" + descripcion
+				+ ", precio;" + precio;
+	}
+	
+	
 	public int getId() {
 		return id;
 	}
