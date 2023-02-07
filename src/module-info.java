@@ -6,4 +6,5 @@
  *
  */
 module hotelesBBDD {
+	requires java.sql;
 }
