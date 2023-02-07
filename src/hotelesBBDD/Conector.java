@@ -14,7 +14,7 @@ public class Conector {
 	
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				conexion = DriverManager.getConnection("jdbc:mysql://localhost/hoteles", "root", "");
+				conexion = DriverManager.getConnection("jdbc:mysql://localhost/hotel", "root", "");
 				System.out.println("funciona");
 				
 			} catch (Exception e) {
