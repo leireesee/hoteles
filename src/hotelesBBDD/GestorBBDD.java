@@ -1,7 +1,9 @@
 package hotelesBBDD;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class GestorBBDD extends Conector{
 	
@@ -67,6 +69,40 @@ public class GestorBBDD extends Conector{
 		
 		return false;
 		
+	}
+	
+	public ArrayList<Cliente> verClientes(){
+		
+		ArrayList<Cliente> clientes = null;
+		
+		String verClientes = "SELECT * FROM clientes";
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement(verClientes);
+			ResultSet rst = pst.executeQuery();
+			
+			clientes = new ArrayList<>();
+			
+			while (rst.next()) {
+				
+				Cliente cliente = new Cliente();
+				
+				cliente.setDni(rst.getString("dni"));
+				cliente.setNombre(rst.getString("nombre"));
+				cliente.setApellidos(rst.getString("apellidos"));
+				cliente.setDireccion(rst.getString("direccion"));
+				cliente.setLocalidad(rst.getString("localidad"));				
+				
+				clientes.add(cliente);
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return clientes;
 	}
 	
 }
