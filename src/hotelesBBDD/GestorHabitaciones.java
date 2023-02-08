@@ -2,34 +2,34 @@ package hotelesBBDD;
 
 import java.util.Scanner;
 
-public class GestorHotel {
-
+public class GestorHabitaciones {
+	
 	public void run(Scanner scan) {
 
 		int opcionMenu;
 
 		do {
-			VisorMenu.visualizarMenuHoteles();
+			VisorMenu.visualizarMenuHabitaciones();
 			opcionMenu = Integer.parseInt(scan.nextLine());
 
 			switch (opcionMenu) {
-			case VisorMenu.ANADIR_HOTEL: {
-				System.out.println("Añadir hotel");
+			case VisorMenu.ANADIR_HABITACION: {
+				System.out.println("Añadir habitacion");
 				break;
 			}
 
-			case VisorMenu.ELIMINAR_HOTEL: {
-				System.out.println("Eliminar hotel");
+			case VisorMenu.ELIMINAR_HABITACION: {
+				System.out.println("Eliminar habitacion");
 				break;
 			}
 
-			case VisorMenu.MODIFICAR_HOTEL: {
-				System.out.println("Modificar hotel");
+			case VisorMenu.MODIFICAR_HABITACIONES: {
+				System.out.println("Modificar habitacion");
 				break;
 			}
 
-			case VisorMenu.VER_HOTELES: {
-				System.out.println("Ver hoteles");
+			case VisorMenu.VER_HABITACIONES: {
+				System.out.println("Ver habitaciones");
 				break;
 			}
 
