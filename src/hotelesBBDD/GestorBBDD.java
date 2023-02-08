@@ -27,4 +27,22 @@ public class GestorBBDD extends Conector{
 		
 	}
 	
+	public boolean eliminarCliente(String dni) {
+		String eliminarCliente = "DELETE FROM clientes WHERE dni = ?";
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement(eliminarCliente);
+			pst.setString(1, dni);
+			
+			return pst.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+		
+	}
+	
 }
