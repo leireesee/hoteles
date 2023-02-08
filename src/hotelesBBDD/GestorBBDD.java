@@ -105,4 +105,30 @@ public class GestorBBDD extends Conector{
 		return clientes;
 	}
 	
+	
+	public boolean insertarHotel(Hotel hotel) {
+		String insertarHotel = "INSERT INTO hoteles VALUES (?, ?, ?, ?, ?)";
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement(insertarHotel);
+			pst.setString(1, hotel.getCif());
+			pst.setString(2, hotel.getNombre());
+			pst.setString(3, hotel.getGerente());
+			pst.setInt(4, hotel.getEstrellas());
+			pst.setString(5, hotel.getCompania());
+			
+			return pst.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+		
+	}
+	
+	
+	
+	
 }
