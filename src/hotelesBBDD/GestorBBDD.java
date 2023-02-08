@@ -171,4 +171,39 @@ public class GestorBBDD extends Conector{
 		return false;
 		
 	}
+	
+	
+	public ArrayList<Hotel> verHoteles(){
+		
+		ArrayList<Hotel> hoteles = null;
+		
+		String verHoteles = "SELECT * FROM hoteles";
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement(verHoteles);
+			ResultSet rst = pst.executeQuery();
+			
+			hoteles = new ArrayList<>();
+			
+			while (rst.next()) {
+				
+				Hotel hotel = new Hotel();
+				
+				hotel.setId(rst.getInt("id"));
+				hotel.setNombre(rst.getString("nombre"));
+				hotel.setGerente(rst.getString("gerente"));
+				hotel.setEstrellas(rst.getInt("estrellas"));
+				hotel.setCompania(rst.getString("compania"));				
+				
+				hoteles.add(hotel);
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return hoteles;
+	}
 }
