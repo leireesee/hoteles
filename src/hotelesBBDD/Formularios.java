@@ -122,6 +122,23 @@ public class Formularios {
 		return cifIntro;
 	}
 	
+	public static Hotel modifcarHotel(Hotel hotel, Scanner scan) {
+		
+		String cifIntro = introduceCifHotel(scan);
+		String nombreIntro = introduceNombreHotel(scan);
+		String gerenteIntro = introduceGerenteHotel(scan);
+		int estrellasIntro = introduceEstrellasHotel(scan);
+		String companiaIntro = introduceCompaniaHotel(scan);
+		
+		hotel.setCif(cifIntro);
+		hotel.setNombre(nombreIntro);
+		hotel.setGerente(gerenteIntro);
+		hotel.setEstrellas(estrellasIntro);
+		hotel.setCompania(companiaIntro);
+			
+		return hotel;
+	}
+	
 	
 	public static Habitacion pedirDatosHabitacion(Scanner scan) {
 		
