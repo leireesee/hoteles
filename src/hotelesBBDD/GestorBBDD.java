@@ -345,7 +345,22 @@ public class GestorBBDD extends Conector{
 	
 	public boolean modificarReserva(Reserva reserva) {
 		
+		String st = "UPDATE reservas SET id_habitacion=?, dni=?, desde=?, hasta=? WHERE id=?";
 		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement(st);
+			
+			pst.setInt(1, reserva.getId_habitacion());
+			pst.setString(2, reserva.getDni());
+			pst.setDate(3, new Date(reserva.getDesde().getTime()));
+			pst.setDate(4, new Date(reserva.getHasta().getTime()));
+			pst.setInt(5, reserva.getId());
+			
+			return pst.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return false;
 	}
