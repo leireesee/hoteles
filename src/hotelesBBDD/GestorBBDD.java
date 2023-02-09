@@ -326,4 +326,22 @@ public class GestorBBDD extends Conector{
 		return false;
 	}
 	
+	public boolean eliminarReserva(int id) {
+		
+		String st = "DELETE FROM reservas WHERE id=?";
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement(st);
+			
+			pst.setInt(1, id);
+			
+			return pst.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	
 }
