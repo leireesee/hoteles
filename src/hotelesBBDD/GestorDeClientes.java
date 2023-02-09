@@ -7,6 +7,8 @@ public class GestorDeClientes {
 	public void run(Scanner scan){
 		
 		int opcionMenu;
+		GestorBBDD gestorBBDD = new GestorBBDD();	
+		Cliente cliente = null;
 		
 		do {
 			VisorMenu.visualizarMenuCliente();
@@ -14,7 +16,13 @@ public class GestorDeClientes {
 			
 			switch (opcionMenu){
 			case VisorMenu.ALTA_CLIENTE: {
-				System.out.println("Alta cliente");
+				gestorBBDD.conectar();
+				cliente = Formularios.pedirDatosCliente(scan);
+				if (gestorBBDD.insertarCliente(cliente)) 
+					System.out.println("Cliente introducido con exito");
+				else 
+					System.out.println("ERROR!!! Cliente no introducido");
+				gestorBBDD.cerrar();
 				break;
 			}
 			
