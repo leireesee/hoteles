@@ -57,8 +57,17 @@ public class Formularios {
 		return dniIntro;
 	}
 	
-	public static Cliente modifcarCliente(Cliente cliente) {
+	public static Cliente modifcarCliente(Cliente cliente, Scanner scan) {
 		
+		String nombreIntro = introducirNombreCliente(scan);
+		String apellidoIntro = introducirApellidoCliente(scan);
+		String direccionIntro = introducirDireccionCliente(scan);
+		String localidadIntro = introducirLocalidadCliente(scan);
+		
+		cliente.setNombre(nombreIntro);
+		cliente.setApellidos(apellidoIntro);
+		cliente.setDireccion(direccionIntro);
+		cliente.setLocalidad(localidadIntro);
 		
 		return cliente;
 	}
