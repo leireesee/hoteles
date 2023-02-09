@@ -11,20 +11,11 @@ public class Formularios {
 		
 		Cliente cliente = new Cliente();
 		
-		System.out.println("Introduce el dni del cliente");
-		String dniIntro = scan.nextLine();
-		
-		System.out.println("Introduce el nombre del cliente");
-		String nombreIntro = scan.nextLine();
-		
-		System.out.println("Introduce los apellidos del cliente");
-		String apellidoIntro = scan.nextLine();
-		
-		System.out.println("Introduce la direccion del cliente");
-		String direccionIntro = scan.nextLine();
-		
-		System.out.println("Introduce la localidad del cliente");
-		String localidadIntro = scan.nextLine();
+		String dniIntro = introducirDniCliente(scan);
+		String nombreIntro = introducirNombreCliente(scan);
+		String apellidoIntro = introducirApellidoCliente(scan);
+		String direccionIntro = introducirDireccionCliente(scan);
+		String localidadIntro = introducirLocalidadCliente(scan);
 		
 		cliente.setDni(dniIntro);
 		cliente.setNombre(nombreIntro);
@@ -34,6 +25,42 @@ public class Formularios {
 		
 		return cliente;
 		
+	}
+
+	private static String introducirLocalidadCliente(Scanner scan) {
+		System.out.println("Introduce la localidad del cliente");
+		String localidadIntro = scan.nextLine();
+		return localidadIntro;
+	}
+
+	private static String introducirDireccionCliente(Scanner scan) {
+		System.out.println("Introduce la direccion del cliente");
+		String direccionIntro = scan.nextLine();
+		return direccionIntro;
+	}
+
+	private static String introducirApellidoCliente(Scanner scan) {
+		System.out.println("Introduce los apellidos del cliente");
+		String apellidoIntro = scan.nextLine();
+		return apellidoIntro;
+	}
+
+	private static String introducirNombreCliente(Scanner scan) {
+		System.out.println("Introduce el nombre del cliente");
+		String nombreIntro = scan.nextLine();
+		return nombreIntro;
+	}
+
+	private static String introducirDniCliente(Scanner scan) {
+		System.out.println("Introduce el dni del cliente");
+		String dniIntro = scan.nextLine();
+		return dniIntro;
+	}
+	
+	public static Cliente modifcarCliente(Cliente cliente) {
+		
+		
+		return cliente;
 	}
 	
 	public static Hotel pedirDatosHotel(Scanner scan) {
