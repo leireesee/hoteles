@@ -190,25 +190,39 @@ public class Formularios {
 		return idIntro;
 	}
 	
+	public static Habitacion modificardatosHabitacion(Habitacion habitacion, Scanner scan) {
+		
+		int idHotelIntro = introduceIdHotel(scan);
+		String numeroIntro = introduceNumeroHabitacion(scan);
+		String descripcionIntro = introduceDescripcionHabitacion(scan);
+		double precioIntro = introducePrecioHabitacion(scan);
+		
+		habitacion.setId_hotel(idHotelIntro);
+		habitacion.setNumero(numeroIntro);
+		habitacion.setDescripcion(descripcionIntro);
+		habitacion.setPrecio(precioIntro);
+		
+		return habitacion;
+	}
+	
 	public static Reserva pedirDatosReserva(Scanner scan) {
 		
 		Reserva reserva = new Reserva();
 		
 		int idHabitacionIntro = introduceIdHabitacion(scan);
+		String dniIntro = introducirDniCliente(scan);
+		Date fechaInicio = introduceFechaInicio(scan);
+		Date fechaFin = introduceFechaFinal(scan);
 		
-		System.out.println("Introduce el dni del cliente");
-		String dniIntro = scan.nextLine();
+		reserva.setId_habitacion(idHabitacionIntro);
+		reserva.setDni(dniIntro);
+		reserva.setDesde(fechaInicio);
+		reserva.setHasta(fechaFin);
 		
-		System.out.println("Introduce la fecha de inicio: ");
-		Date fechaInicio = null;
-		
-		try {
-			fechaInicio = new SimpleDateFormat("dd/MM/yyyy").parse(scan.nextLine());
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		return reserva;
+	}
+
+	private static Date introduceFechaFinal(Scanner scan) {
 		System.out.println("Introduce la fecha del final: ");
 		Date fechaFin = null;
 		
@@ -218,14 +232,21 @@ public class Formularios {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		reserva.setId_habitacion(idHabitacionIntro);
-		reserva.setDni(dniIntro);
-		reserva.setDesde(fechaInicio);
-		reserva.setHasta(fechaFin);
-		
-		
-		return reserva;
+		return fechaFin;
 	}
+
+	private static Date introduceFechaInicio(Scanner scan) {
+		System.out.println("Introduce la fecha de inicio: ");
+		Date fechaInicio = null;
+		
+		try {
+			fechaInicio = new SimpleDateFormat("dd/MM/yyyy").parse(scan.nextLine());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return fechaInicio;
+	}
+	
 	
 }
