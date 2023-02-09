@@ -36,6 +36,16 @@ public class Formularios {
 		
 	}
 	
+	public static String pedirDniCliente(Scanner scan) {
+		
+		System.out.println("Introduce el dni del cliente");
+		String dni = scan.nextLine();
+		
+		return dni;
+		
+	}
+	
+	
 	public static Hotel pedirDatosHotel(Scanner scan) {
 		
 		Hotel hotel = new Hotel();
@@ -62,6 +72,16 @@ public class Formularios {
 		hotel.setCompania(companiaIntro);
 		
 		return hotel;
+		
+	}
+	
+	
+	public static int pedirIdHotel(Scanner scan) {
+		
+		System.out.println("Introduce el id del hotel");
+		int id = Integer.parseInt(scan.nextLine());
+		
+		return id;
 		
 	}
 	
@@ -94,6 +114,17 @@ public class Formularios {
 		return habitacion;
 		
 	}
+	
+	
+	public static int pedirIdHabitacion(Scanner scan) {
+		
+		System.out.println("Introduce el id de la habitacion");
+		int id = Integer.parseInt(scan.nextLine());
+		
+		return id;
+		
+	}
+	
 	
 	public static Reserva pedirDatosReserva(Scanner scan) {
 		
@@ -133,5 +164,16 @@ public class Formularios {
 		
 		return reserva;
 	}
+	
+	
+	public static int pedirIdReserva(Scanner scan) {
+		
+		System.out.println("Introduce el id de reserva");
+		int id = Integer.parseInt(scan.nextLine());
+		
+		return id;
+		
+	}
+	
 	
 }
