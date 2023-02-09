@@ -1,5 +1,6 @@
 package hotelesBBDD;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -309,12 +310,18 @@ public class GestorBBDD extends Conector{
 		
 		try {
 			PreparedStatement pst = super.conexion.prepareStatement(st);
-			pst.setInt(1, reserva.get);
+			
+			pst.setInt(1, reserva.getId());
+			pst.setInt(2, reserva.getId_habitacion());
+			pst.setString(3, reserva.getDni());
+			pst.setDate(4, new Date(reserva.getDesde().getTime()));
+			pst.setDate(5, new Date(reserva.getDesde().getTime()));
+			
+			return pst.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		
 		return false;
 	}
