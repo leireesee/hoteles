@@ -45,6 +45,21 @@ public class Formularios {
 	
 	public static void pedirDatosHabitacion(Scanner scan) {
 		
+		System.out.println("Introduce la id de la habitacion");
+		int idIntro = Integer.parseInt(scan.nextLine());
+		
+		System.out.println("Introduce la id del hotel al que pertenece");
+		int idHotelIntro = Integer.parseInt(scan.nextLine());
+		
+		System.out.println("Introduce el numero de la habitacion");
+		String numeroIntro = scan.nextLine();
+		
+		System.out.println("Introduce la descripcion de la habitacion");
+		String descripcionIntro = scan.nextLine();
+		
+		System.out.println("Introduce el precio de la habitacion");
+		double precioIntro = Double.parseDouble(scan.nextLine());
+		
 	}
 	
 	public static void pedirDatosReserva(Scanner scan) {
