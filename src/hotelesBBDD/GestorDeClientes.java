@@ -43,7 +43,9 @@ public class GestorDeClientes {
 			}
 			
 			case VisorMenu.VER_CLIENTES: {
-				System.out.println("Ver clientes");
+				gestorBBDD.conectar();
+				Visor.mostrarClientes(gestorBBDD.verClientes());
+				gestorBBDD.cerrar();
 				break;
 			}
 			
