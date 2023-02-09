@@ -248,5 +248,18 @@ public class Formularios {
 		return fechaInicio;
 	}
 	
-	
+	public static Reserva modificaReserva(Reserva reserva, Scanner scan) {
+
+		int idHabitacionIntro = introduceIdHabitacion(scan);
+		String dniIntro = introducirDniCliente(scan);
+		Date fechaInicio = introduceFechaInicio(scan);
+		Date fechaFin = introduceFechaFinal(scan);
+		
+		reserva.setId_habitacion(idHabitacionIntro);
+		reserva.setDni(dniIntro);
+		reserva.setDesde(fechaInicio);
+		reserva.setHasta(fechaFin);
+		
+		return reserva;
+	}
 }
