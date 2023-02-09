@@ -76,20 +76,11 @@ public class Formularios {
 		
 		Hotel hotel = new Hotel();
 		
-		System.out.println("Introduce el cif del hotel");
-		String cifIntro = scan.nextLine();
-		
-		System.out.println("Introduce el nombre del hotel");
-		String nombreIntro = scan.nextLine();
-		
-		System.out.println("Introduce el gerente del hotel");
-		String gerenteIntro = scan.nextLine();
-		
-		System.out.println("Introduce las estrellas del hotel");
-		int estrellasIntro = Integer.parseInt(scan.nextLine());
-		
-		System.out.println("Introduce la compañia del hotel");
-		String companiaIntro = scan.nextLine();
+		String cifIntro = introduceCifHotel(scan);
+		String nombreIntro = introduceNombreHotel(scan);
+		String gerenteIntro = introduceGerenteHotel(scan);
+		int estrellasIntro = introduceEstrellasHotel(scan);
+		String companiaIntro = introduceCompaniaHotel(scan);
 		
 		hotel.setCif(cifIntro);
 		hotel.setNombre(nombreIntro);
@@ -99,6 +90,36 @@ public class Formularios {
 		
 		return hotel;
 		
+	}
+
+	private static String introduceCompaniaHotel(Scanner scan) {
+		System.out.println("Introduce la compañia del hotel");
+		String companiaIntro = scan.nextLine();
+		return companiaIntro;
+	}
+
+	private static int introduceEstrellasHotel(Scanner scan) {
+		System.out.println("Introduce las estrellas del hotel");
+		int estrellasIntro = Integer.parseInt(scan.nextLine());
+		return estrellasIntro;
+	}
+
+	private static String introduceGerenteHotel(Scanner scan) {
+		System.out.println("Introduce el gerente del hotel");
+		String gerenteIntro = scan.nextLine();
+		return gerenteIntro;
+	}
+
+	private static String introduceNombreHotel(Scanner scan) {
+		System.out.println("Introduce el nombre del hotel");
+		String nombreIntro = scan.nextLine();
+		return nombreIntro;
+	}
+
+	private static String introduceCifHotel(Scanner scan) {
+		System.out.println("Introduce el cif del hotel");
+		String cifIntro = scan.nextLine();
+		return cifIntro;
 	}
 	
 	
