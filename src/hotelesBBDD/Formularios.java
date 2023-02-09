@@ -144,20 +144,11 @@ public class Formularios {
 		
 		Habitacion habitacion = new Habitacion();
 		
-		System.out.println("Introduce la id de la habitacion");
-		int idIntro = Integer.parseInt(scan.nextLine());
-		
-		System.out.println("Introduce la id del hotel al que pertenece");
-		int idHotelIntro = Integer.parseInt(scan.nextLine());
-		
-		System.out.println("Introduce el numero de la habitacion");
-		String numeroIntro = scan.nextLine();
-		
-		System.out.println("Introduce la descripcion de la habitacion");
-		String descripcionIntro = scan.nextLine();
-		
-		System.out.println("Introduce el precio de la habitacion");
-		double precioIntro = Double.parseDouble(scan.nextLine());
+		int idIntro = introduceIdHabitacion(scan);
+		int idHotelIntro = introduceIdHotel(scan);
+		String numeroIntro = introduceNumeroHabitacion(scan);
+		String descripcionIntro = introduceDescripcionHabitacion(scan);
+		double precioIntro = introducePrecioHabitacion(scan);
 		
 		habitacion.setId(idIntro);
 		habitacion.setId_hotel(idHotelIntro);
@@ -168,13 +159,42 @@ public class Formularios {
 		return habitacion;
 		
 	}
+
+	private static double introducePrecioHabitacion(Scanner scan) {
+		System.out.println("Introduce el precio de la habitacion");
+		double precioIntro = Double.parseDouble(scan.nextLine());
+		return precioIntro;
+	}
+
+	private static String introduceDescripcionHabitacion(Scanner scan) {
+		System.out.println("Introduce la descripcion de la habitacion");
+		String descripcionIntro = scan.nextLine();
+		return descripcionIntro;
+	}
+
+	private static String introduceNumeroHabitacion(Scanner scan) {
+		System.out.println("Introduce el numero de la habitacion");
+		String numeroIntro = scan.nextLine();
+		return numeroIntro;
+	}
+
+	private static int introduceIdHotel(Scanner scan) {
+		System.out.println("Introduce la id del hotel al que pertenece");
+		int idHotelIntro = Integer.parseInt(scan.nextLine());
+		return idHotelIntro;
+	}
+
+	private static int introduceIdHabitacion(Scanner scan) {
+		System.out.println("Introduce la id de la habitacion");
+		int idIntro = Integer.parseInt(scan.nextLine());
+		return idIntro;
+	}
 	
 	public static Reserva pedirDatosReserva(Scanner scan) {
 		
 		Reserva reserva = new Reserva();
 		
-		System.out.println("Introduce la id de la habitacion");
-		int idHabitacionIntro = Integer.parseInt(scan.nextLine());
+		int idHabitacionIntro = introduceIdHabitacion(scan);
 		
 		System.out.println("Introduce el dni del cliente");
 		String dniIntro = scan.nextLine();
