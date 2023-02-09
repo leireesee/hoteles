@@ -306,16 +306,15 @@ public class GestorBBDD extends Conector{
 	
 	public boolean insertarReserva(Reserva reserva) {
 		
-		String st = "INSERT INTO reservas VALUES (?,?,?,?,?)";
+		String st = "INSERT INTO reservas (id_habitacion, dni, desde, hasta) VALUES (?,?,?,?)";
 		
 		try {
 			PreparedStatement pst = super.conexion.prepareStatement(st);
 			
-			pst.setInt(1, reserva.getId());
-			pst.setInt(2, reserva.getId_habitacion());
-			pst.setString(3, reserva.getDni());
+			pst.setInt(1, reserva.getId_habitacion());
+			pst.setString(2, reserva.getDni());
+			pst.setDate(3, new Date(reserva.getDesde().getTime()));
 			pst.setDate(4, new Date(reserva.getDesde().getTime()));
-			pst.setDate(5, new Date(reserva.getDesde().getTime()));
 			
 			return pst.execute();
 		} catch (SQLException e) {
@@ -340,6 +339,13 @@ public class GestorBBDD extends Conector{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		return false;
+	}
+	
+	public boolean modificarReserva(Reserva reserva) {
+		
+		
 		
 		return false;
 	}
