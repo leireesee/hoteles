@@ -301,4 +301,22 @@ public class GestorBBDD extends Conector{
 		return habitaciones;
 	}
 	
+	/*RESERVAS*/
+	
+	public boolean insertarReserva(Reserva reserva) {
+		
+		String st = "INSERT INTO reservas VALUES (?,?,?,?,?)";
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement(st);
+			pst.setInt(1, reserva.get);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return false;
+	}
+	
 }
