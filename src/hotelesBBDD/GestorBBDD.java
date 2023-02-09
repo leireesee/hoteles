@@ -1,5 +1,6 @@
 package hotelesBBDD;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -305,18 +306,93 @@ public class GestorBBDD extends Conector{
 	
 	public boolean insertarReserva(Reserva reserva) {
 		
-		String st = "INSERT INTO reservas VALUES (?,?,?,?,?)";
+		String st = "INSERT INTO reservas (id_habitacion, dni, desde, hasta) VALUES (?,?,?,?)";
 		
 		try {
 			PreparedStatement pst = super.conexion.prepareStatement(st);
-			pst.setInt(1, reserva.get);
+			
+			pst.setInt(1, reserva.getId_habitacion());
+			pst.setString(2, reserva.getDni());
+			pst.setDate(3, new Date(reserva.getDesde().getTime()));
+			pst.setDate(4, new Date(reserva.getDesde().getTime()));
+			
+			return pst.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		return false;
+	}
+	
+	public boolean eliminarReserva(int id) {
+		
+		String st = "DELETE FROM reservas WHERE id=?";
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement(st);
+			
+			pst.setInt(1, id);
+			
+			return pst.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return false;
+	}
+	
+	public boolean modificarReserva(Reserva reserva) {
+		
+		String st = "UPDATE reservas SET id_habitacion=?, dni=?, desde=?, hasta=? WHERE id=?";
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement(st);
+			
+			pst.setInt(1, reserva.getId_habitacion());
+			pst.setString(2, reserva.getDni());
+			pst.setDate(3, new Date(reserva.getDesde().getTime()));
+			pst.setDate(4, new Date(reserva.getHasta().getTime()));
+			pst.setInt(5, reserva.getId());
+			
+			return pst.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	
+	public ArrayList<Reserva> verReservas() {
+		ArrayList<Reserva> reservas = null;
+		
+		String st = "SELECT * FROM reservas";
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement(st);
+			ResultSet rs = pst.executeQuery();
+			
+			reservas = new ArrayList<>();
+			
+			while(rs.next()) {
+				Reserva reserva = new Reserva();
+				
+				reserva.setId(rs.getInt("id"));
+				reserva.setId_habitacion(rs.getInt("id_habitacion"));
+				reserva.setDni(rs.getString("dni"));
+				reserva.setDesde(rs.getDate("desde"));
+				reserva.setHasta(rs.getDate("hasta"));
+				
+				reservas.add(reserva);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return reservas;
 	}
 	
 }
