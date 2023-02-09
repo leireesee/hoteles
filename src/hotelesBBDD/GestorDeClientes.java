@@ -27,7 +27,13 @@ public class GestorDeClientes {
 			}
 			
 			case VisorMenu.MODIFICAR_CLIENTE: {
-				System.out.println("Modificar cliente");
+				gestorBBDD.conectar();
+				String dni = Formularios.pedirDniCliente(scan);
+				if (gestorBBDD.eliminarCliente(dni)) 
+					System.out.println("Cliente eliminado con exito");
+				else 
+					System.out.println("ERROR!!! Cliente no eliminado");
+				gestorBBDD.cerrar();
 				break;
 			}
 			
