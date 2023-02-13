@@ -446,7 +446,7 @@ public class GestorBBDD extends Conector{
 	public Reserva getReserva(int id) {
 		Reserva reserva = null;
 		
-		String st = "SELECT FROM hoteles WHERE id=?";
+		String st = "SELECT FROM reservas WHERE id=?";
 		
 		try {
 			PreparedStatement pst = super.conexion.prepareStatement(st);
@@ -455,12 +455,12 @@ public class GestorBBDD extends Conector{
 			ResultSet rs = pst.executeQuery();
 			rs.next();
 			
-			habitacion = new Habitacion();
-			habitacion.setId(rs.getInt("id"));
-			habitacion.setId_hotel(rs.getInt("id_hotel"));
-			habitacion.setNumero(rs.getString("numero"));
-			habitacion.setDescripcion(rs.getString("descripcion"));
-			habitacion.setPrecio(rs.getDouble("precio"));	
+			reserva = new Reserva();
+			reserva.setId(rs.getInt("id"));
+			reserva.setId_habitacion(rs.getInt("id_habitacion"));
+			reserva.setDni(rs.getString("dni"));
+			reserva.setDesde(rs.getDate("desde"));
+			reserva.setHasta(rs.getDate("hasta"));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
