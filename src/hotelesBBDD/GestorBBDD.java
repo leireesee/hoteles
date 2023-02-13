@@ -132,6 +132,7 @@ public class GestorBBDD extends Conector{
 		return clientes;
 	}
 	
+	/*HOTEL*/
 	
 	public boolean insertarHotel(Hotel hotel) {
 		String insertarHotel = "INSERT INTO hoteles VALUES (?, ?, ?, ?, ?)";
@@ -199,6 +200,31 @@ public class GestorBBDD extends Conector{
 		
 	}
 	
+	public Hotel getHotel(int id) {
+		Hotel hotel = null;
+		
+		String st = "SELECT FROM hoteles WHERE id=?";
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement(st);
+			pst.setInt(1, id);
+			
+			ResultSet rs = pst.executeQuery();
+			rs.next();
+			
+			hotel = new Hotel();
+			hotel.setId(rs.getInt("id"));
+			hotel.setNombre(rs.getString("nombre"));
+			hotel.setGerente(rs.getString("gerente"));
+			hotel.setEstrellas(rs.getInt("estrellas"));
+			hotel.setCompania(rs.getString("compania"));	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return hotel;
+	}
 	
 	public ArrayList<Hotel> verHoteles(){
 		
