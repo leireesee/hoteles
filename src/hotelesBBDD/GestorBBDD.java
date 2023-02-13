@@ -135,7 +135,7 @@ public class GestorBBDD extends Conector{
 	/*HOTEL*/
 	
 	public boolean insertarHotel(Hotel hotel) {
-		String insertarHotel = "INSERT INTO hoteles VALUES (?, ?, ?, ?, ?)";
+		String insertarHotel = "INSERT INTO hoteles (cif, nombre, gerente, estrellas, compania) VALUES (?, ?, ?, ?, ?)";
 		
 		try {
 			PreparedStatement pst = super.conexion.prepareStatement(insertarHotel);
