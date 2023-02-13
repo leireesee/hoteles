@@ -214,6 +214,7 @@ public class GestorBBDD extends Conector{
 			
 			hotel = new Hotel();
 			hotel.setId(rs.getInt("id"));
+			hotel.setCif(rs.getString("cif"));
 			hotel.setNombre(rs.getString("nombre"));
 			hotel.setGerente(rs.getString("gerente"));
 			hotel.setEstrellas(rs.getInt("estrellas"));
@@ -243,6 +244,7 @@ public class GestorBBDD extends Conector{
 				Hotel hotel = new Hotel();
 				
 				hotel.setId(rst.getInt("id"));
+				hotel.setCif(rst.getString("cif"));
 				hotel.setNombre(rst.getString("nombre"));
 				hotel.setGerente(rst.getString("gerente"));
 				hotel.setEstrellas(rst.getInt("estrellas"));
