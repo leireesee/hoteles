@@ -327,7 +327,7 @@ public class GestorBBDD extends Conector{
 	public Habitacion getHabitacion(int id) {
 		Habitacion habitacion = null;
 		
-		String st = "SELECT FROM hoteles WHERE id=?";
+		String st = "SELECT FROM habitaciones WHERE id=?";
 		
 		try {
 			PreparedStatement pst = super.conexion.prepareStatement(st);
@@ -441,6 +441,32 @@ public class GestorBBDD extends Conector{
 		}
 		
 		return false;
+	}
+	
+	public Reserva getReserva(int id) {
+		Reserva reserva = null;
+		
+		String st = "SELECT FROM hoteles WHERE id=?";
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement(st);
+			pst.setInt(1, id);
+			
+			ResultSet rs = pst.executeQuery();
+			rs.next();
+			
+			habitacion = new Habitacion();
+			habitacion.setId(rs.getInt("id"));
+			habitacion.setId_hotel(rs.getInt("id_hotel"));
+			habitacion.setNumero(rs.getString("numero"));
+			habitacion.setDescripcion(rs.getString("descripcion"));
+			habitacion.setPrecio(rs.getDouble("precio"));	
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return reserva;
 	}
 	
 	public ArrayList<Reserva> verReservas() {
