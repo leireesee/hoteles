@@ -27,7 +27,11 @@ public class GestorDeClientes {
 			}
 			
 			case VisorMenu.MODIFICAR_CLIENTE: {
-				
+				gestorBBDD.conectar();
+				String dni = Formularios.pedirDniCliente(scan);
+				cliente = gestorBBDD.getCliente(dni);
+				gestorBBDD.modificarCliente(Formularios.modifcarCliente(cliente, scan));
+				gestorBBDD.cerrar();
 				break;
 			}
 			
