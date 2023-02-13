@@ -7,6 +7,8 @@ public class GestorHabitaciones {
 	public void run(Scanner scan) {
 
 		int opcionMenu;
+		GestorBBDD gestorBBDD = new GestorBBDD();
+		Habitacion habitacion = null;
 
 		do {
 			VisorMenu.visualizarMenuHabitaciones();
@@ -14,7 +16,12 @@ public class GestorHabitaciones {
 
 			switch (opcionMenu) {
 			case VisorMenu.ANADIR_HABITACION: {
-				System.out.println("Añadir habitacion");
+				gestorBBDD.conectar();
+				habitacion = Formularios.pedirDatosHabitacion(scan);
+				if(gestorBBDD.insertarHabitacion(habitacion))
+					System.out.println("Habitacion introducido con exito");
+				else
+					System.out.println("ERROR!!! Habitacion no introducido");
 				break;
 			}
 
