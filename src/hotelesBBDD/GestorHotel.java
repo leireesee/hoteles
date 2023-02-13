@@ -18,10 +18,12 @@ public class GestorHotel {
 			case VisorMenu.ANADIR_HOTEL: {
 				gestorBBDD.conectar();
 				hotel = Formularios.pedirDatosHotel(scan);
-				if(gestorBBDD.insertarHotel(hotel)) 
+				if(gestorBBDD.insertarHotel(hotel)) { 
 					System.out.println("Hotel introducido con exito");
-				else
+					new GestorHabitaciones();
+				} else {
 					System.out.println("ERROR!!! Hotel no introducido");
+				}
 				gestorBBDD.cerrar();
 				break;
 				
