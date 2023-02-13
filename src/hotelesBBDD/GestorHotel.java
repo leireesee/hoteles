@@ -41,7 +41,11 @@ public class GestorHotel {
 			}
 
 			case VisorMenu.MODIFICAR_HOTEL: {
-				System.out.println("Modificar hotel");
+				gestorBBDD.conectar();
+				int id = Formularios.pedirIdHotel(scan);
+				hotel = gestorBBDD.getHotel(id);
+				gestorBBDD.modificarHotel(Formularios.modifcarHotel(hotel, scan));
+				gestorBBDD.cerrar();
 				break;
 			}
 
