@@ -47,7 +47,7 @@ public class GestorBBDD extends Conector{
 		return false;
 		
 	}
-	
+
 	public boolean modificarCliente(Cliente cliente) {
 		
 		String modificarCliente = "UPDATE clientes SET dni = ?, nombre = ?, apellidos = ?, direccion = ?, localidad = ? WHERE dni = ?";
@@ -70,6 +70,32 @@ public class GestorBBDD extends Conector{
 		
 		return false;
 		
+	}
+	
+	public Cliente getCliente(int id) {
+		Cliente cliente = null;
+		
+		String st = "SELECT FROM clientes WHERE id=?";
+		
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement(st);
+			pst.setInt(1, id);
+			
+			ResultSet rs = pst.executeQuery();
+			rs.next();
+			
+			cliente = new Cliente();
+			cliente.setDni(rs.getString("dni"));
+			cliente.setNombre(rs.getString("nombre"));
+			cliente.setApellidos(rs.getString("apellidos"));
+			cliente.setDireccion(rs.getString("direccion"));
+			cliente.setLocalidad(rs.getString("localidad"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return cliente;
 	}
 	
 	public ArrayList<Cliente> verClientes(){
