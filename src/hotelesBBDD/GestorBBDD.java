@@ -75,7 +75,7 @@ public class GestorBBDD extends Conector{
 	public Cliente getCliente(String dni) {
 		Cliente cliente = null;
 		
-		String st = "SELECT FROM clientes WHERE dni=?";
+		String st = "SELECT * FROM clientes WHERE dni=?";
 		
 		try {
 			PreparedStatement pst = super.conexion.prepareStatement(st);
@@ -203,7 +203,7 @@ public class GestorBBDD extends Conector{
 	public Hotel getHotel(int id) {
 		Hotel hotel = null;
 		
-		String st = "SELECT FROM hoteles WHERE id=?";
+		String st = "SELECT * FROM hoteles WHERE id=?";
 		
 		try {
 			PreparedStatement pst = super.conexion.prepareStatement(st);
@@ -327,7 +327,7 @@ public class GestorBBDD extends Conector{
 	public Habitacion getHabitacion(int id) {
 		Habitacion habitacion = null;
 		
-		String st = "SELECT FROM habitaciones WHERE id=?";
+		String st = "SELECT * FROM habitaciones WHERE id=?";
 		
 		try {
 			PreparedStatement pst = super.conexion.prepareStatement(st);
@@ -446,7 +446,7 @@ public class GestorBBDD extends Conector{
 	public Reserva getReserva(int id) {
 		Reserva reserva = null;
 		
-		String st = "SELECT FROM reservas WHERE id=?";
+		String st = "SELECT * FROM reservas WHERE id=?";
 		
 		try {
 			PreparedStatement pst = super.conexion.prepareStatement(st);
