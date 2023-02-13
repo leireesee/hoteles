@@ -22,21 +22,34 @@ public class GestorHabitaciones {
 					System.out.println("Habitacion introducido con exito");
 				else
 					System.out.println("ERROR!!! Habitacion no introducido");
+				gestorBBDD.cerrar();
 				break;
 			}
 
 			case VisorMenu.ELIMINAR_HABITACION: {
-				System.out.println("Eliminar habitacion");
+				gestorBBDD.conectar();
+				int id = Formularios.pedirIdHabitacion(scan);
+				if(gestorBBDD.eliminarHabitacion(id))
+					System.out.println("Habitacion eliminado con exito");
+				else
+					System.out.println("ERROR!!! Habitacion no eliminado");
+				gestorBBDD.cerrar();
 				break;
 			}
 
 			case VisorMenu.MODIFICAR_HABITACIONES: {
-				System.out.println("Modificar habitacion");
+				gestorBBDD.conectar();
+				int id = Formularios.pedirIdHabitacion(scan);
+				habitacion = gestorBBDD.getHabitacion(id);
+				gestorBBDD.modificarHabitacion(Formularios.modificardatosHabitacion(habitacion, scan));
+				gestorBBDD.cerrar();
 				break;
 			}
 
 			case VisorMenu.VER_HABITACIONES: {
-				System.out.println("Ver habitaciones");
+				gestorBBDD.conectar();
+				Visor.mostrarHabitaciones(gestorBBDD.verHabitaciones());
+				gestorBBDD.cerrar();
 				break;
 			}
 
