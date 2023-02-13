@@ -72,14 +72,14 @@ public class GestorBBDD extends Conector{
 		
 	}
 	
-	public Cliente getCliente(int id) {
+	public Cliente getCliente(String dni) {
 		Cliente cliente = null;
 		
-		String st = "SELECT FROM clientes WHERE id=?";
+		String st = "SELECT FROM clientes WHERE dni=?";
 		
 		try {
 			PreparedStatement pst = super.conexion.prepareStatement(st);
-			pst.setInt(1, id);
+			pst.setString(1, dni);
 			
 			ResultSet rs = pst.executeQuery();
 			rs.next();
