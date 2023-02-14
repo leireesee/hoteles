@@ -18,7 +18,7 @@ public class GestorHotel {
 			case VisorMenu.ANADIR_HOTEL: {
 				gestorBBDD.conectar();
 				hotel = Formularios.pedirDatosHotel(scan);
-				if(!gestorBBDD.insertarHotel(hotel)) { 
+				if(gestorBBDD.insertarHotel(hotel)) { 
 					System.out.println("Hotel introducido con exito");
 					new GestorHabitaciones().run(scan);
 				} else {
@@ -32,7 +32,7 @@ public class GestorHotel {
 			case VisorMenu.ELIMINAR_HOTEL: {
 				gestorBBDD.conectar();
 				int id = Formularios.pedirIdHotel(scan);
-				if(!gestorBBDD.eliminarHotel(id))
+				if(gestorBBDD.eliminarHotel(id))
 					System.out.println("Hotel eliminado con exito");
 				else
 					System.out.println("ERROR!!! Hotel no eliminado");

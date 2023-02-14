@@ -18,7 +18,7 @@ public class GestorDeClientes {
 			case VisorMenu.ALTA_CLIENTE: {
 				gestorBBDD.conectar();
 				cliente = Formularios.pedirDatosCliente(scan);
-				if (!gestorBBDD.insertarCliente(cliente)) 
+				if (gestorBBDD.insertarCliente(cliente)) 
 					System.out.println("Cliente introducido con exito");
 				else 
 					System.out.println("ERROR!!! Cliente no introducido");
@@ -38,7 +38,7 @@ public class GestorDeClientes {
 			case VisorMenu.ELIMINAR_CLIENTE: {
 				gestorBBDD.conectar();
 				String dni = Formularios.pedirDniCliente(scan);
-				if (!gestorBBDD.eliminarCliente(dni)) 
+				if (gestorBBDD.eliminarCliente(dni)) 
 					System.out.println("Cliente eliminado con exito");
 				else 
 					System.out.println("ERROR!!! Cliente no eliminado");

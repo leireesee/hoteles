@@ -18,7 +18,7 @@ public class GestorHabitaciones {
 			case VisorMenu.ANADIR_HABITACION: {
 				gestorBBDD.conectar();
 				habitacion = Formularios.pedirDatosHabitacion(scan);
-				if(!gestorBBDD.insertarHabitacion(habitacion))
+				if(gestorBBDD.insertarHabitacion(habitacion))
 					System.out.println("Habitacion introducido con exito");
 				else
 					System.out.println("ERROR!!! Habitacion no introducido");
@@ -29,7 +29,7 @@ public class GestorHabitaciones {
 			case VisorMenu.ELIMINAR_HABITACION: {
 				gestorBBDD.conectar();
 				int id = Formularios.pedirIdHabitacion(scan);
-				if(!gestorBBDD.eliminarHabitacion(id))
+				if(gestorBBDD.eliminarHabitacion(id))
 					System.out.println("Habitacion eliminado con exito");
 				else
 					System.out.println("ERROR!!! Habitacion no eliminado");
