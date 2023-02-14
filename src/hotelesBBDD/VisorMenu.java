@@ -5,6 +5,7 @@ public class VisorMenu {
 	protected static final int GESTIONAR_CLIENTES = 1;
 	protected static final int GESTIONAR_RESERVAS = 2;
 	protected static final int GESTIONAR_HOTELES = 3;
+	protected static final int GESTIONAR_HABITACIONES = 4;
 	protected static final int SALIR = 0;
 	
 	protected static final int ALTA_CLIENTE = 1;
@@ -32,6 +33,7 @@ public class VisorMenu {
 		System.out.println(GESTIONAR_CLIENTES + ". Gestionar clientes");
 		System.out.println(GESTIONAR_RESERVAS + ". Gestionar reservas");
 		System.out.println(GESTIONAR_HOTELES + ". Gestionar hoteles");
+		System.out.println(GESTIONAR_HABITACIONES + ". Gestionar habitaciones");
 		System.out.println(SALIR + ". Salir");
 		
 	}
