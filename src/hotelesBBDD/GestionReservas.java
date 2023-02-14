@@ -7,6 +7,8 @@ public class GestionReservas {
 public void run(Scanner scan){
 		
 		int opcionMenu;
+		GestorBBDD gestorBBDD = new GestorBBDD();
+		Reserva reserva = new Reserva();
 		
 		do {
 			VisorMenu.visualizarMenuReservas();
@@ -14,7 +16,13 @@ public void run(Scanner scan){
 			
 			switch (opcionMenu){
 			case VisorMenu.HACER_RESERVA: {
-				System.out.println("Hacer reserva");
+				gestorBBDD.conectar();
+				reserva = Formularios.pedirDatosReserva(scan);
+				if(gestorBBDD.insertarReserva(reserva))
+					System.out.println("Reserva introducido con exito");
+				else
+					System.out.println("ERROR!!! Reserva no introducido");
+				
 				break;
 			}
 			
