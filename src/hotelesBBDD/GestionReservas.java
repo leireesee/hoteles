@@ -38,7 +38,9 @@ public void run(Scanner scan){
 			}
 			
 			case VisorMenu.VER_RESERVAS: {
-				System.out.println("Ver reservas");
+				gestorBBDD.conectar();
+				Visor.mostrarReservas(gestorBBDD.verReservas());
+				gestorBBDD.cerrar();
 				break;
 			}
 			
