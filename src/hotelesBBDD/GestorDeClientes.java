@@ -48,7 +48,26 @@ public class GestorDeClientes {
 			
 			case VisorMenu.VER_CLIENTES: {
 				gestorBBDD.conectar();
-				Visor.mostrarClientes(gestorBBDD.verClientes());
+				System.out.println("Como quieres verlo:\n"
+						+ "1: Sin ordenar\n"
+						+ "2: Ordenar por nombre\n"
+						+ "3: Ordenar por apellido\n"
+						+ "4: Filtrar");
+				int opcionVerClientes = Integer.parseInt(scan.nextLine());
+				switch(opcionVerClientes) {
+				case 1:
+					Visor.mostrarClientes(gestorBBDD.verClientes());
+					break;
+				case 2: 
+					Visor.mostrarClientesOrdenadosPorNombre(gestorBBDD.verClientes());
+					break;
+				case 3: 
+					Visor.mostrarClientesOrdenadosPorApellido(gestorBBDD.verClientes());
+					break;
+				case 4: 
+					Visor.filtrarClientes(scan, gestorBBDD.verClientes());
+					break;
+				}
 				gestorBBDD.cerrar();
 				break;
 			}
