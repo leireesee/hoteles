@@ -27,7 +27,13 @@ public void run(Scanner scan){
 			}
 			
 			case VisorMenu.ELIMINAR_RESERVA: {
-				System.out.println("Eliminar reserva");
+				gestorBBDD.conectar();
+				int id = Formularios.pedirIdReserva(scan);
+				if(gestorBBDD.eliminarReserva(id))
+					System.out.println("Reserva eliminado con exito");
+				else
+					System.out.println("ERROR!!! Reserva no eliminado");
+				gestorBBDD.cerrar();
 				break;
 			}
 			
