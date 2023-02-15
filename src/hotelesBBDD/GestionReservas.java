@@ -72,8 +72,17 @@ public void run(Scanner scan){
 				break;
 			}
 			
+			case VisorMenu.VER_RESERVAS_CLIENTES_ESPECIFICOS: {
+				gestorBBDD.conectar();
+				System.out.print("Introduce el dni del usuario: ");
+				String dni = scan.nextLine();
+				Visor.mostrarReservasDeUnaPersona(gestorBBDD.verReservas(), dni);
+				gestorBBDD.cerrar();
+				break;
+			}
+			
 			case VisorMenu.SALIR: {
-				System.out.println("Salir");
+				System.out.println("Saliendo...");
 				break;
 			}
 			
