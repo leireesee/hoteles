@@ -20,13 +20,6 @@ public class GestorHotel {
 				hotel = Formularios.pedirDatosHotel(scan);
 				if(gestorBBDD.insertarHotel(hotel)) { 
 					System.out.println("Hotel introducido con exito");
-					Habitacion habitacion = new Habitacion();
-					habitacion.setId_hotel(hotel.getId());
-					if(gestorBBDD.insertarHabitacion(Formularios.pedirDatosHabitacionSinIdHotel(scan, habitacion))) {
-						System.out.println("Habitacion introducida con exito");
-					}else {
-						System.out.println("ERROR!!! Habitacion no introducido");
-					}
 				} else {
 					System.out.println("ERROR!!! Hotel no introducido");
 				}
