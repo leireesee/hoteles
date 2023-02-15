@@ -12,14 +12,14 @@ public class Visor {
 	}
 	
 	public static void mostrarClientesOrdenadosPorNombre(ArrayList<Cliente> clientes) {
-		clientes.sort((arg0, arg1) -> arg0.getNombre().compareTo(arg1.getNombre()));
+		clientes.sort((arg0, arg1) -> arg0.getNombre().toLowerCase().compareTo(arg1.getNombre().toLowerCase()));
 		for (Cliente cliente : clientes) {
 			System.out.println(cliente);
 		}
 	}
 	
 	public static void mostrarClientesOrdenadosPorApellido(ArrayList<Cliente> clientes) {
-		clientes.sort((arg0, arg1) -> arg0.getApellidos().compareTo(arg1.getApellidos()));
+		clientes.sort((arg0, arg1) -> arg0.getApellidos().toLowerCase().compareTo(arg1.getApellidos().toLowerCase()));
 		for (Cliente cliente : clientes) {
 			System.out.println(cliente);
 		}
