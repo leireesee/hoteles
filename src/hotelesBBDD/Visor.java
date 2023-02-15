@@ -63,10 +63,16 @@ public class Visor {
 	}
 	
 	public static void mostrarReservasDeUnaPersona(ArrayList<Reserva> reservas, String dni) {
+		int cont = 0;
+		
 		for (Reserva reserva : reservas) {
 			if (dni.equals(reserva.getDni())) {
 				System.out.println(reserva);
+				cont++;
 			}
 		}
+		
+		if(cont == 0 )
+			System.out.println("No se han encontrado reservas");
 	}
 }
