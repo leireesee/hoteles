@@ -1,5 +1,8 @@
 package hotelesBBDD;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class GestionReservas {
@@ -40,6 +43,31 @@ public void run(Scanner scan){
 			case VisorMenu.VER_RESERVAS: {
 				gestorBBDD.conectar();
 				Visor.mostrarReservas(gestorBBDD.verReservas());
+				gestorBBDD.cerrar();
+				break;
+			}
+			
+			case VisorMenu.VER_RESERVAS_FECHAS_CONCRETAS: {
+				gestorBBDD.conectar();
+				
+				Date desde = null;
+				Date hasta = null;
+				
+				System.out.print("Desde (dd/MM/yyyy): ");
+				try {
+					desde = new SimpleDateFormat("dd/MM/yyyy").parse(scan.nextLine());
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				System.out.print("Hasta (dd/MM/yyyy): ");
+				try {
+					hasta = new SimpleDateFormat("dd/MM/yyyy").parse(scan.nextLine());
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Visor.mostrarReservasEntreFechas(gestorBBDD.verReservas(), desde, hasta);
 				gestorBBDD.cerrar();
 				break;
 			}
