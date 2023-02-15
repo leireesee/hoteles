@@ -1,6 +1,7 @@
 package hotelesBBDD;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Visor {
@@ -13,16 +14,12 @@ public class Visor {
 	
 	public static void mostrarClientesOrdenadosPorNombre(ArrayList<Cliente> clientes) {
 		clientes.sort((arg0, arg1) -> arg0.getNombre().toLowerCase().compareTo(arg1.getNombre().toLowerCase()));
-		for (Cliente cliente : clientes) {
-			System.out.println(cliente);
-		}
+		mostrarClientes(clientes);
 	}
 	
 	public static void mostrarClientesOrdenadosPorApellido(ArrayList<Cliente> clientes) {
 		clientes.sort((arg0, arg1) -> arg0.getApellidos().toLowerCase().compareTo(arg1.getApellidos().toLowerCase()));
-		for (Cliente cliente : clientes) {
-			System.out.println(cliente);
-		}
+		mostrarClientes(clientes);
 	}
 	
 	public static void filtrarClientes(Scanner scan, ArrayList<Cliente> clientes) {
@@ -55,5 +52,13 @@ public class Visor {
 			System.out.println(reserva);
 		}
 		
+	}
+	
+	public static void mostrarReservasEntreFechas(ArrayList<Reserva> reservas, Date desde, Date hasta) {
+		for (Reserva reserva : reservas) {
+			if (desde.after(reserva.getDesde()) && hasta.before(reserva.getHasta())) {
+				System.out.println(reserva);
+			}
+		}
 	}
 }
