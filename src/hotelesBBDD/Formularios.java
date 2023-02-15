@@ -180,9 +180,7 @@ public class Formularios {
 		
 	}
 	
-	public static Habitacion pedirDatosHabitacionSinIdHotel(Scanner scan) {
-		Habitacion habitacion = new Habitacion();
-		
+	public static Habitacion pedirDatosHabitacionSinIdHotel(Scanner scan, Habitacion habitacion) {		
 		int idIntro = introduceIdHabitacion(scan);
 		String numeroIntro = introduceNumeroHabitacion(scan);
 		String descripcionIntro = introduceDescripcionHabitacion(scan);
