@@ -61,4 +61,12 @@ public class Visor {
 			}
 		}
 	}
+	
+	public static void mostrarReservasDeUnaPersona(ArrayList<Reserva> reservas, String dni) {
+		for (Reserva reserva : reservas) {
+			if (dni.equals(reserva.getDni())) {
+				System.out.println(reserva);
+			}
+		}
+	}
 }
