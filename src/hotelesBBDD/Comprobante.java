@@ -6,18 +6,18 @@ public class Comprobante {
 	public static boolean comprobarDni(Scanner scan, String dni) {
 		GestorBBDD gestorBBDD = new GestorBBDD();
 		gestorBBDD.conectar();
-		boolean existe = gestorBBDD.getCliente(dni).getDni().equals(dni);
+		Cliente cliente = gestorBBDD.getCliente(dni);
 		gestorBBDD.cerrar();
 		
-		return existe;
+		return cliente != null ? true : false;
 	}
 	
 	public static boolean comprobarHotel(Scanner scan, int idHotel) {
 		GestorBBDD gestorBBDD = new GestorBBDD();
 		gestorBBDD.conectar();
-		boolean existe = gestorBBDD.getHotel(idHotel).getId() == idHotel;
+		Hotel hotel = gestorBBDD.getHotel(idHotel);
 		gestorBBDD.cerrar();
 		
-		return existe;
+		return hotel != null ? true : false;
 	}
 }
