@@ -75,7 +75,7 @@ public class Formularios {
 	public static String pedirDniCliente(Scanner scan) {
 		
 		System.out.println("Introduce el dni del cliente");
-		String dni = scan.nextLine();
+		String dni = scan.nextLine().trim();
 		
 		return dni;
 		
@@ -104,13 +104,22 @@ public class Formularios {
 
 	private static String introduceCompaniaHotel(Scanner scan) {
 		System.out.println("Introduce la compañia del hotel");
-		String companiaIntro = scan.nextLine();
+		String companiaIntro = scan.nextLine().toLowerCase().trim();
 		return companiaIntro;
 	}
 
 	private static int introduceEstrellasHotel(Scanner scan) {
-		System.out.println("Introduce las estrellas del hotel");
-		int estrellasIntro = Integer.parseInt(scan.nextLine());
+		int estrellasIntro = 0;
+		
+		while(estrellasIntro > 5 || estrellasIntro < 1) {
+			try {
+				System.out.println("Introduce las estrellas del hotel");
+				estrellasIntro = Integer.parseInt(scan.nextLine());
+			} catch (Exception e) {
+				estrellasIntro = 0;
+			}
+		}
+		
 		return estrellasIntro;
 	}
 
