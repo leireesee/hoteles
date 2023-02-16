@@ -286,7 +286,7 @@ public class Formularios {
 		int idHabitacionIntro = introduceIdHabitacion(scan);
 		String dniIntro = introducirDniCliente(scan);
 		Date fechaInicio = introduceFechaInicio(scan);
-		Date fechaFin = introduceFechaFinal(scan);
+		Date fechaFin = introduceFechaFinal(scan, fechaInicio);
 		
 		reserva.setId_habitacion(idHabitacionIntro);
 		reserva.setDni(dniIntro);
@@ -296,16 +296,18 @@ public class Formularios {
 		return reserva;
 	}
 
-	private static Date introduceFechaFinal(Scanner scan) {
+	private static Date introduceFechaFinal(Scanner scan, Date fechaIncio) {
 		System.out.println("Introduce la fecha del final: ");
 		Date fechaFin = null;
+		do {
+			try {
+				fechaFin = new SimpleDateFormat("dd/MM/yyyy").parse(scan.nextLine());
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}while(Comprobante.comprobarFechas(fechaIncio, fechaFin));
 		
-		try {
-			fechaFin = new SimpleDateFormat("dd/MM/yyyy").parse(scan.nextLine());
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return fechaFin;
 	}
 
@@ -327,7 +329,7 @@ public class Formularios {
 		int idHabitacionIntro = introduceIdHabitacion(scan);
 		String dniIntro = introducirDniCliente(scan);
 		Date fechaInicio = introduceFechaInicio(scan);
-		Date fechaFin = introduceFechaFinal(scan);
+		Date fechaFin = introduceFechaFinal(scan, fechaInicio);
 		
 		reserva.setId_habitacion(idHabitacionIntro);
 		reserva.setDni(dniIntro);
