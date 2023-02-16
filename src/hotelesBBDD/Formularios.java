@@ -195,6 +195,20 @@ public class Formularios {
 		return habitacion;
 		
 	}
+	
+	public static Habitacion pedirDatosHabitacionSinIdHotel(Scanner scan, Habitacion habitacion) {		
+		int idIntro = introduceIdHabitacion(scan);
+		String numeroIntro = introduceNumeroHabitacion(scan);
+		String descripcionIntro = introduceDescripcionHabitacion(scan);
+		double precioIntro = introducePrecioHabitacion(scan);
+		
+		habitacion.setId(idIntro);
+		habitacion.setNumero(numeroIntro);
+		habitacion.setDescripcion(descripcionIntro);
+		habitacion.setPrecio(precioIntro);
+		
+		return habitacion;
+	}
 
 	private static double introducePrecioHabitacion(Scanner scan) {
 		

@@ -29,6 +29,10 @@ public class GestorPrincipal {
 					break;
 				}
 				
+				case VisorMenu.GESTIONAR_HABITACIONES: {
+					new GestorHabitaciones().run(scan);
+				}
+				
 				case VisorMenu.SALIR: {
 					System.out.println("Salir");
 					break;

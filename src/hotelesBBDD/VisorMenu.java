@@ -5,6 +5,7 @@ public class VisorMenu {
 	protected static final int GESTIONAR_CLIENTES = 1;
 	protected static final int GESTIONAR_RESERVAS = 2;
 	protected static final int GESTIONAR_HOTELES = 3;
+	protected static final int GESTIONAR_HABITACIONES = 4;
 	protected static final int SALIR = 0;
 	
 	protected static final int ALTA_CLIENTE = 1;
@@ -15,6 +16,8 @@ public class VisorMenu {
 	protected static final int HACER_RESERVA = 1;
 	protected static final int ELIMINAR_RESERVA= 2;
 	protected static final int VER_RESERVAS = 3;
+	protected static final int VER_RESERVAS_FECHAS_CONCRETAS = 4;
+	protected static final int VER_RESERVAS_CLIENTES_ESPECIFICOS = 5;
 	
 	protected static final int ANADIR_HOTEL = 1;
 	protected static final int ELIMINAR_HOTEL = 2;
@@ -32,6 +35,7 @@ public class VisorMenu {
 		System.out.println(GESTIONAR_CLIENTES + ". Gestionar clientes");
 		System.out.println(GESTIONAR_RESERVAS + ". Gestionar reservas");
 		System.out.println(GESTIONAR_HOTELES + ". Gestionar hoteles");
+		System.out.println(GESTIONAR_HABITACIONES + ". Gestionar habitaciones");
 		System.out.println(SALIR + ". Salir");
 		
 	}
@@ -53,6 +57,8 @@ public class VisorMenu {
 		System.out.println(HACER_RESERVA + ". Hacer una reserva");
 		System.out.println(ELIMINAR_RESERVA + ". Eliminar una reserva");
 		System.out.println(VER_RESERVAS + ". Ver reservas");
+		System.out.println(VER_RESERVAS_FECHAS_CONCRETAS + ". Ver reservas en fechas concretas");
+		System.out.println(VER_RESERVAS_CLIENTES_ESPECIFICOS + ". Ver reservas de cliente");
 		System.out.println(SALIR + ". Salir");
 		
 	}

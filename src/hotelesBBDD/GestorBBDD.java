@@ -19,8 +19,8 @@ public class GestorBBDD extends Conector{
 			pst.setString(4, cliente.getDireccion());
 			pst.setString(5, cliente.getLocalidad());
 			
-			return pst.execute();
-			
+			pst.execute();
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -37,8 +37,8 @@ public class GestorBBDD extends Conector{
 			PreparedStatement pst = super.conexion.prepareStatement(eliminarCliente);
 			pst.setString(1, dni);
 			
-			return pst.execute();
-			
+			pst.execute();
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -61,8 +61,8 @@ public class GestorBBDD extends Conector{
 			pst.setString(5, cliente.getLocalidad());
 			pst.setString(6, cliente.getDni());
 			
-			return pst.execute();
-			
+			pst.execute();
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -145,8 +145,8 @@ public class GestorBBDD extends Conector{
 			pst.setInt(4, hotel.getEstrellas());
 			pst.setString(5, hotel.getCompania());
 			
-			return pst.execute();
-			
+			pst.execute();
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -164,8 +164,8 @@ public class GestorBBDD extends Conector{
 			PreparedStatement pst = super.conexion.prepareStatement(eliminarHotel);
 			pst.setInt(1, id);
 			
-			return pst.execute();
-			
+			pst.execute();
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -189,8 +189,8 @@ public class GestorBBDD extends Conector{
 			pst.setString(5, hotel.getCompania());
 			pst.setInt(6, hotel.getId());
 			
-			return pst.execute();
-			
+			pst.execute();
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -276,7 +276,8 @@ public class GestorBBDD extends Conector{
 			pst.setString(4, habitacion.getDescripcion());
 			pst.setDouble(5, habitacion.getPrecio());
 			
-			return pst.execute();
+			pst.execute();
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -294,7 +295,8 @@ public class GestorBBDD extends Conector{
 			
 			pst.setInt(1, id);
 			
-			return pst.execute();
+			pst.execute();
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -317,7 +319,8 @@ public class GestorBBDD extends Conector{
 			pst.setDouble(4, habitacion.getPrecio());
 			pst.setInt(5, habitacion.getId());
 			
-			return pst.execute();
+			pst.execute();
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -396,7 +399,8 @@ public class GestorBBDD extends Conector{
 			pst.setDate(3, new Date(reserva.getDesde().getTime()));
 			pst.setDate(4, new Date(reserva.getDesde().getTime()));
 			
-			return pst.execute();
+			pst.execute();
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -414,7 +418,8 @@ public class GestorBBDD extends Conector{
 			
 			pst.setInt(1, id);
 			
-			return pst.execute();
+			pst.execute();
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -436,7 +441,8 @@ public class GestorBBDD extends Conector{
 			pst.setDate(4, new Date(reserva.getHasta().getTime()));
 			pst.setInt(5, reserva.getId());
 			
-			return pst.execute();
+			pst.execute();
+			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
