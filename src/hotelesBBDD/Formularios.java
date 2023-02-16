@@ -29,31 +29,31 @@ public class Formularios {
 
 	private static String introducirLocalidadCliente(Scanner scan) {
 		System.out.println("Introduce la localidad del cliente");
-		String localidadIntro = scan.nextLine();
+		String localidadIntro = scan.nextLine().toLowerCase().trim();
 		return localidadIntro;
 	}
 
 	private static String introducirDireccionCliente(Scanner scan) {
 		System.out.println("Introduce la direccion del cliente");
-		String direccionIntro = scan.nextLine();
+		String direccionIntro = scan.nextLine().toLowerCase().trim();
 		return direccionIntro;
 	}
 
 	private static String introducirApellidoCliente(Scanner scan) {
 		System.out.println("Introduce los apellidos del cliente");
-		String apellidoIntro = scan.nextLine();
+		String apellidoIntro = scan.nextLine().toLowerCase().trim();
 		return apellidoIntro;
 	}
 
 	private static String introducirNombreCliente(Scanner scan) {
 		System.out.println("Introduce el nombre del cliente");
-		String nombreIntro = scan.nextLine();
+		String nombreIntro = scan.nextLine().toLowerCase().trim();
 		return nombreIntro;
 	}
 
 	private static String introducirDniCliente(Scanner scan) {
 		System.out.println("Introduce el dni del cliente");
-		String dniIntro = scan.nextLine();
+		String dniIntro = scan.nextLine().toLowerCase().trim();
 		return dniIntro;
 	}
 	
