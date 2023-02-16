@@ -197,8 +197,18 @@ public class Formularios {
 	}
 
 	private static double introducePrecioHabitacion(Scanner scan) {
-		System.out.println("Introduce el precio de la habitacion");
-		double precioIntro = Double.parseDouble(scan.nextLine());
+		
+		double precioIntro = 0;
+		
+		while (precioIntro <= 0) {
+			try {
+				System.out.println("Introduce el precio de la habitacion");
+				precioIntro = Double.parseDouble(scan.nextLine());
+			} catch (Exception e) {
+				precioIntro = 0;
+			}
+		}
+		
 		return precioIntro;
 	}
 
