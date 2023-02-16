@@ -125,19 +125,19 @@ public class Formularios {
 
 	private static String introduceGerenteHotel(Scanner scan) {
 		System.out.println("Introduce el gerente del hotel");
-		String gerenteIntro = scan.nextLine();
+		String gerenteIntro = scan.nextLine().toLowerCase().trim();
 		return gerenteIntro;
 	}
 
 	private static String introduceNombreHotel(Scanner scan) {
 		System.out.println("Introduce el nombre del hotel");
-		String nombreIntro = scan.nextLine();
+		String nombreIntro = scan.nextLine().toLowerCase().trim();
 		return nombreIntro;
 	}
 
 	private static String introduceCifHotel(Scanner scan) {
 		System.out.println("Introduce el cif del hotel");
-		String cifIntro = scan.nextLine();
+		String cifIntro = scan.nextLine().toLowerCase().trim();
 		return cifIntro;
 	}
 	
