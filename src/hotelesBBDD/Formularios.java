@@ -284,7 +284,7 @@ public class Formularios {
 		Reserva reserva = new Reserva();
 		
 		int idHabitacionIntro = introduceIdHabitacion(scan);
-		String dniIntro = introducirDniCliente(scan);
+		String dniIntro = pedirDni(scan);
 		Date fechaInicio = introduceFechaInicio(scan);
 		Date fechaFin = introduceFechaFinal(scan, fechaInicio);
 		
@@ -294,6 +294,17 @@ public class Formularios {
 		reserva.setHasta(fechaFin);
 		
 		return reserva;
+	}
+
+	private static String pedirDni(Scanner scan) {
+		
+		String dniIntro;
+		
+		do {
+			dniIntro = introducirDniCliente(scan);
+		}while(Comprobante.comprobarDni(scan, null));
+		
+		return dniIntro;
 	}
 
 	private static Date introduceFechaFinal(Scanner scan, Date fechaIncio) {
