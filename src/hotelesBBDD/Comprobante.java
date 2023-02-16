@@ -1,5 +1,6 @@
 package hotelesBBDD;
 
+import java.util.Date;
 import java.util.Scanner;
 
 public class Comprobante {
@@ -19,5 +20,10 @@ public class Comprobante {
 		gestorBBDD.cerrar();
 		
 		return hotel != null ? true : false;
+	}
+	
+	public static boolean comprobarFechas(Date desde, Date hasta) {
+		
+		return desde.before(hasta);
 	}
 }
