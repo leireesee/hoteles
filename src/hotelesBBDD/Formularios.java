@@ -161,11 +161,18 @@ public class Formularios {
 	
 	public static int pedirIdHotel(Scanner scan) {
 		
-		System.out.println("Introduce el id del hotel");
-		int id = Integer.parseInt(scan.nextLine());
+		int id = 0;
 		
+		while (id == 0) {
+			try {
+				System.out.println("Introduce el id del hotel");
+				id = Integer.parseInt(scan.nextLine());
+			} catch (Exception e) {
+				id = 0;
+			}
+		}
+
 		return id;
-		
 	}
 	
 	
