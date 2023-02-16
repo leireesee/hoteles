@@ -214,25 +214,42 @@ public class Formularios {
 
 	private static String introduceDescripcionHabitacion(Scanner scan) {
 		System.out.println("Introduce la descripcion de la habitacion");
-		String descripcionIntro = scan.nextLine();
+		String descripcionIntro = scan.nextLine().toLowerCase().trim();
 		return descripcionIntro;
 	}
 
 	private static String introduceNumeroHabitacion(Scanner scan) {
 		System.out.println("Introduce el numero de la habitacion");
-		String numeroIntro = scan.nextLine();
+		String numeroIntro = scan.nextLine().toLowerCase().trim();
 		return numeroIntro;
 	}
 
 	private static int introduceIdHotel(Scanner scan) {
-		System.out.println("Introduce la id del hotel al que pertenece");
-		int idHotelIntro = Integer.parseInt(scan.nextLine());
+		
+		int idHotelIntro = 0;
+		
+		do {
+			System.out.println("Introduce la id del hotel al que pertenece");
+			idHotelIntro =  Integer.parseInt(scan.nextLine());
+		} while (Comprobante.comprobarHotel(scan, idHotelIntro));
+		
+		
 		return idHotelIntro;
 	}
 
 	private static int introduceIdHabitacion(Scanner scan) {
-		System.out.println("Introduce la id de la habitacion");
-		int idIntro = Integer.parseInt(scan.nextLine());
+		
+		int idIntro = 0;
+		
+		while (idIntro <= 0) {
+			try {
+				System.out.println("Introduce la id de la habitacion");
+				idIntro = Integer.parseInt(scan.nextLine());
+			} catch (Exception e) {
+				idIntro = 0;
+			}
+		}
+		
 		return idIntro;
 	}
 	
