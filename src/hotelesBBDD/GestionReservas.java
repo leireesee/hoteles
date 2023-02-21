@@ -59,12 +59,17 @@ public void run(Scanner scan){
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}
-				System.out.print("Hasta (dd/MM/yyyy): ");
-				try {
-					hasta = new SimpleDateFormat("dd/MM/yyyy").parse(scan.nextLine());
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}
+				
+				
+				do {
+					System.out.print("Hasta (dd/MM/yyyy): ");
+					try {
+						hasta = new SimpleDateFormat("dd/MM/yyyy").parse(scan.nextLine());
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+				} while (hasta.before(desde));
+				
 				Visor.mostrarReservasEntreFechas(gestorBBDD.verReservas(), desde, hasta);
 				gestorBBDD.cerrar();
 				break;
