@@ -56,7 +56,7 @@ public class Visor {
 	
 	public static void mostrarReservasEntreFechas(ArrayList<Reserva> reservas, Date desde, Date hasta) {
 		for (Reserva reserva : reservas) {
-			if (desde.after(reserva.getDesde()) && hasta.before(reserva.getHasta())) {
+			if (reserva.getDesde().after(desde) && reserva.getHasta().before(hasta)) {
 				System.out.println(reserva);
 			}
 		}
