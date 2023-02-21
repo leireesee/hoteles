@@ -10,7 +10,7 @@ public class Comprobante {
 		Cliente cliente = gestorBBDD.getCliente(dni);
 		gestorBBDD.cerrar();
 		
-		return cliente != null ? true : false;
+		return cliente == null ? true : false;
 	}
 	
 	public static boolean comprobarHotel(Scanner scan, int idHotel) {
@@ -19,11 +19,11 @@ public class Comprobante {
 		Hotel hotel = gestorBBDD.getHotel(idHotel);
 		gestorBBDD.cerrar();
 		
-		return hotel != null ? true : false;
+		return hotel == null ? true : false;
 	}
 	
 	public static boolean comprobarFechas(Date desde, Date hasta) {
 		
-		return desde.before(hasta);
+		return hasta.before(desde);
 	}
 }
