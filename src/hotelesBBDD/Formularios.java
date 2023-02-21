@@ -316,7 +316,7 @@ public class Formularios {
 		
 		do {
 			dniIntro = introducirDniCliente(scan);
-		}while(Comprobante.comprobarDni(scan, null));
+		}while(Comprobante.comprobarDni(scan, dniIntro));
 		
 		return dniIntro;
 	}
