@@ -93,6 +93,7 @@ public class GestorBBDD extends Conector{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			cliente = null;
 		}
 		
 		return cliente;
@@ -222,6 +223,7 @@ public class GestorBBDD extends Conector{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			hotel = null;
 		}
 		
 		return hotel;
